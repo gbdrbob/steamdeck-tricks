@@ -41,9 +41,12 @@ Mine was 3073228955, but the number doesn't really matter here
 You need to replace my 3073228955 with your ID here!
 
 ```sh
+#Setup
 export STEAM_APP_ID=3073228955
 
-# Setup
+# Allow protontricks full access to your home directory
+flatpak --user override --filesystem=home com.github.Matoking.protontricks
+# Install Dependencies
 flatpak run com.github.Matoking.protontricks $STEAM_APP_ID corefonts d3dx9 d3dcompiler_43 d3dcompiler_47
 flatpak run com.github.Matoking.protontricks -c 'wine msiexec /i "~/.cache/wine/wine-mono-7.2.0-x86.msi"' $STEAM_APP_ID
 flatpak run com.github.Matoking.protontricks -c 'wine msiexec /i "~/.cache/wine/wine-gecko-2.47.2-x86.msi"' $STEAM_APP_ID
